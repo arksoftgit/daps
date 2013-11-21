@@ -1,0 +1,3 @@
+﻿hadapsApp.service('hadapsService', function () {
+
+});

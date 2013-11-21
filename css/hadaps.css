@@ -1,0 +1,18 @@
+﻿.bodyFont {
+    font-family:'OFL Sorts Mill Goudy TT','PT Sans', Helvetica, sans-serif;
+}
+
+.section-article {
+    display:block; padding-left:0;font-family:'OFL Sorts Mill Goudy TT', georgia, times, serif;font-size:15px;white-space: wrap;
+}
+
+.divLoginDisplay {
+    float:left; 
+    height:200px;
+    padding:5px 10px; 
+    margins:auto;
+    font-size: 13px;
+    color:maroon;
+    font-weight:900;
+    text-decoration: none;
+}
