@@ -4,12 +4,13 @@
         localStorage.removeItem("dapslogin");
     }
 
-    this.addLogin = function (userid) {
+    this.addLogin = function (userid,username) {
         d = new Date();
         timestamp = d.getTime();
 
         var loginStr = "[ {"; 
-        loginStr = loginStr + "\"userid\":"+userid;
+        loginStr = loginStr + "\"userid\":\""+userid;
+        loginStr = loginStr + "\",\"username\":\""+username;        
         loginStr = loginStr + "\",\"timestamp\":\""+timestamp;
         loginStr = loginStr+"\"} ]";
 
@@ -25,6 +26,21 @@
         var loginStr = localStorage.getItem("dapslogin");
 
         return loginStr;
+    }
+
+    this.getLoginUserName = function () {
+        var username = "";
+
+        var str = this.getLogin();
+        if (str != "" && str != null)
+        {
+            var loginStr = JSON.parse(str);
+            $.each(loginStr, function() {
+                username = this.username; 
+            });
+        }
+        
+        return username;
     }
 
     this.amIloggedIn = function () {

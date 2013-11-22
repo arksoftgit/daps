@@ -73,7 +73,7 @@ if (!mysql_select_db($DBschema, $dbConn))
 //------------------------------------------------------
 // get userid for username passed
 //------------------------------------------------------      
-$sql = "select userid from haadminusertbl where username = '$username'";
+$sql = "select userid,password from haadminusertbl where username = '$username'";
 
 $sql_result = @mysql_query($sql, $dbConn);
 if (!$sql_result)
@@ -92,16 +92,25 @@ $count = mysql_num_rows($sql_result);
 if ($count == 1)
 {
 	$row = @mysql_fetch_array($sql_result,MYSQL_ASSOC);
-
-	$returnArray["status"] = "ok";
+	
 	$returnArray["userid"] = $row['userid'];
-	$returnArray["text"] = "";
+	if (strcmp($password,$row['password']))
+	{
+		$returnArray["status"] = "err";
+		$returnArray["text"] = "Admin UserID password does not match password entered for Admin User Name = $username";
+	}
+	else
+	{
+		$returnArray["status"] = "ok";
+		$returnArray["text"] = "";		
+	}
 } 
 else
 {
 	$returnArray["status"] = "err";
-	$returnArray["text"] = "Admin UserID Not Found";
+	$returnArray["text"] = "Admin UserID Not Found for Admin User Name = $username";
 }
+
 //
 // close db connection
 //

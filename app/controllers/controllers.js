@@ -1,10 +1,28 @@
 // define controllers for app
 var controllers = {};
+controllers.hadapsParentController = function ($scope, $http, $location, loginService) {
+
+    init();
+    function init() {
+        var amiloggedin = loginService.amIloggedIn();
+        if (amiloggedin == 0) {
+            $scope.adminusername = "None";
+            $location.path("/login");
+        }
+        else
+        {
+            $scope.adminusername = loginService.getLoginUserName();
+        }
+    };
+}
+
 controllers.loginController = function ($scope, $http, $location, hadapsApp, loginService, dialogService) {
 
     init();
     function init() {
         loginService.clearLogin();
+
+        $scope.$parent.adminusername = "None";
 
         $("#loginbutton").click(function () {
             // var err = validateLoginForm();
@@ -14,13 +32,9 @@ controllers.loginController = function ($scope, $http, $location, hadapsApp, log
             var serializedData = $("#loginform").serialize();
             hadapsApp.processLogin(serializedData)
                 .success( function(returnArray) {
-                    //
-                    // after we save and validate we send pappal
-                    // whatever it needs
-                    //
                     if (returnArray.status == "ok")
                     {
-                        loginService.addLogin(returnArray.userid);
+                        loginService.addLogin(returnArray.userid,returnArray.username);
                         $location.path("/home");
                     }
                     else
@@ -45,8 +59,12 @@ controllers.hadapsController = function ($scope, $http, $location, hadapsApp, lo
     function init() {
         var amiloggedin = loginService.amIloggedIn();
         if (amiloggedin == 0) {
+            $scope.$parent.adminusername = "None";
             $location.path("/login");
         }
+
+        $scope.$parent.adminusername = loginService.getLoginUserName();
+
 
     };
 }
