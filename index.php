@@ -34,6 +34,7 @@
 <script src="app/factories/factories.js"></script>
 <script src="app/services/hadapsservice.js"></script>
 <script src="app/services/loginservice.js"></script>
+<script src="app/services/adminfunctionservice.js"></script>
 <script src="app/services/dialogservice.js"></script>
 <script src="app/directives/directives.js"></script>
 <script src="app/validations/validate.js"></script>
@@ -51,12 +52,22 @@
 </div>
 
 <div class="container" style="padding-top:20px;">
-<div style="background:white;clear:both;" class="reveal-animation" data-ng-view=""></div>
+<div style="background:white;clear:both;" data-ng-view=""></div>
 </div> <!-- end of container top -->
 
 <div style="background:#855D65;height:275px;">
 	<div class="container" style="padding-top:20px;">
+	<div id="userdisplay" style="float:left">
 		<span style="color:white;font-weight:800;">Admin User: {{adminusername}}</span>
+	</div>
+	<div id="quickpickdisplay" style="float:right">
+		<span style="color:white;font-weight:800;">
+		Quick Select: <select data-ng-model="functionlistdisplay" 
+		ng-options="adminfunction.title for adminfunction in adminfunctions" 
+		ng-change="change(functionlistdisplay)"> </select> 
+		</span>
+	</div>
+	
 	</div><!-- end of container top -->
 </div> <!-- end of footer -->
 

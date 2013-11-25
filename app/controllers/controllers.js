@@ -1,22 +1,32 @@
 // define controllers for app
 var controllers = {};
-controllers.hadapsParentController = function ($scope, $http, $location, loginService) {
+controllers.hadapsParentController = function ($scope, $http, $location, loginService, adminfunctionService) {
 
     init();
     function init() {
+        $scope.adminfunctions = adminfunctionService.getFunctions();
+        $scope.change = function (adminfunction) {
+              if (adminfunctionService.isLogoff(adminfunction.action))
+                $("#quickpickdisplay").hide();
+
+              $location.path(adminfunctionService.getActionLocation(adminfunction.action));
+          }
+
         var amiloggedin = loginService.amIloggedIn();
         if (amiloggedin == 0) {
             $scope.adminusername = "None";
-            $location.path("/login");
+            $("#quickpickdisplay").hide();
+            $location.path(adminfunctionService.getActionLocation(""));
         }
         else
         {
             $scope.adminusername = loginService.getLoginUserName();
+            $("#quickpickdisplay").show();
         }
     };
 }
 
-controllers.loginController = function ($scope, $http, $location, hadapsApp, loginService, dialogService) {
+controllers.loginController = function ($scope, $http, $location, hadapsApp, loginService, dialogService, adminfunctionService) {
 
     init();
     function init() {
@@ -35,7 +45,8 @@ controllers.loginController = function ($scope, $http, $location, hadapsApp, log
                     if (returnArray.status == "ok")
                     {
                         loginService.addLogin(returnArray.userid,returnArray.username);
-                        $location.path("/home");
+                        // $("#quickpickdisplay").show();
+                        $location.path(adminfunctionService.getActionLocation("home"));
                     }
                     else
                     {
@@ -45,6 +56,7 @@ controllers.loginController = function ($scope, $http, $location, hadapsApp, log
 
                 .error( function(data) {
                     $scope.messages.msg = "Failed ajax to login user";
+                    $("#quickpickdisplay").hide();
                 });
 
             return false
@@ -53,18 +65,25 @@ controllers.loginController = function ($scope, $http, $location, hadapsApp, log
     };
 }
 
-controllers.hadapsController = function ($scope, $http, $location, hadapsApp, loginService) {
+controllers.hadapsController = function ($scope, $http, $location, hadapsApp, loginService, adminfunctionService) {
 
     init();
     function init() {
         var amiloggedin = loginService.amIloggedIn();
         if (amiloggedin == 0) {
             $scope.$parent.adminusername = "None";
-            $location.path("/login");
+            $("#quickpickdisplay").hide();
+            $location.path(adminfunctionService.getActionLocation(""));
         }
+        else
+        {
+            $("#quickpickdisplay").show();
+            $scope.$parent.adminusername = loginService.getLoginUserName();
 
-        $scope.$parent.adminusername = loginService.getLoginUserName();
-
+            $scope.clienttitles = adminfunctionService.getClientTitles();
+            $scope.providertitles = adminfunctionService.getProviderTitles();
+            $scope.admintitles = adminfunctionService.getAdminTitles();
+        }
 
     };
 }
