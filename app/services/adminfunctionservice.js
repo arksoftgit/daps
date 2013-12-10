@@ -86,7 +86,7 @@
         },
         {
             title: "Setup Client",
-            action: "setupclient",
+            action: "clientsetup",
             owner: "client"
         },
         {

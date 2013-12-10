@@ -52,7 +52,7 @@
 </div>
 
 <div class="container" style="padding-top:20px;">
-<div style="background:white;clear:both;" data-ng-view=""></div>
+<div style="background:white;clear:both;" data-ng-view="" class="view-animate"></div>
 </div> <!-- end of container top -->
 
 <div style="background:#855D65;height:275px;">

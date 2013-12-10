@@ -11,7 +11,8 @@
   <table width="100%">
     <tr style="height:60px;" ng-repeat="clienttitle in clienttitles">
       <td align="center">
-        <button type="button" class="btn btn-primary btn-lg btn-block big-buttons ">{{clienttitle}}</button>
+        <!-- <button type="button" class="btn btn-primary btn-lg btn-block big-buttons ">{{clienttitle}}</button> -->
+        <a href="#/clientsetup" class="btn btn-primary btn-lg btn-block big-buttons">{{clienttitle}}</a>
       </td>
     </tr>
   </table>
@@ -28,7 +29,7 @@
   </div><!-- end of col-lg-6 -->
 </div> <!-- end of row -->  
 
-<div class="row" style="padding-top:40px;font-size:14px;font-weight:500;" >
+<div class="row" style="padding-top:40px;font-size:14px;font-weight:500;">
   <div class="col-lg-12">
   <table width="100%">
     <tr style="height:60px;" ng-repeat="admintitle in admintitles">
