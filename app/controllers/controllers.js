@@ -80,12 +80,27 @@ controllers.hadapsController = function ($scope, $http, $location, hadapsApp, lo
             $("#quickpickdisplay").show();
             $scope.$parent.adminusername = loginService.getLoginUserName();
 
-            $scope.clienttitles = adminfunctionService.getClientTitles();
-            $scope.providertitles = adminfunctionService.getProviderTitles();
-            $scope.admintitles = adminfunctionService.getAdminTitles();
+            $scope.sysfuncs = adminfunctionService.getAllFunctions();
+        }
+    };
+
+    $scope.showHideInfo = function (action, elm)
+    {
+        var path = "app/load/"+elm.sysfunc.action+".html";
+
+        if (action == "show")
+        {
+            $("#infoarea").load(path);
+
+            $("#infoarea").css("display","block");
+        }
+        else if (action == "hide")
+        {
+            $("#infoarea").css("display","none");
         }
 
     };
+
 }
 
 controllers.clientsetupController = function ($scope, $http, $location, hadapsApp, loginService, adminfunctionService) {

@@ -17,6 +17,19 @@
         return location;
     }
 
+    this.getAllFunctions = function () {
+        var allFunctions = this.getFunctions();
+
+        var allSysFunctions = new Array();
+        var index = 0;
+        $.each(allFunctions, function() {
+            allSysFunctions[index] = this;
+            index++;  
+        });
+
+        return allSysFunctions;
+    }
+
     this.getClientTitles = function () {
         var allFunctions = this.getFunctions();
 
@@ -75,50 +88,59 @@
 
     var adminfunctions = [
         {
-            title: "Logout",
-            action: "login",
-            owner: "user"
-        },
-        {
             title: "Service Center",
             action: "home",
-            owner: "user"
+            owner: "user",
+            boostrapbutton:"btn-primary"
         },
         {
             title: "Setup Client",
             action: "clientsetup",
-            owner: "client"
-        },
-        {
-            title: "Setup Provider",
-            action: "setupprovider",
-            owner: "provider"
-        },
-        {
-            title: "Gather Information",
-            action: "informationgather",
-            owner: "client"
-        },
-        {
-            title: "Client Information",
-            action: "informationclient",
-            owner: "client"
-        },
-        {
-            title: "Provider Information",
-            action: "informationprovider",
-            owner: "provider"
+            owner: "client",
+            boostrapbutton:"btn-primary"
         },
         {
             title: "Request Information",
             action: "informationrequest",
-            owner: "provider"
+            owner: "client",
+            boostrapbutton:"btn-primary"
+        },
+        {
+            title: "Client Information",
+            action: "informationclient",
+            owner: "client",
+            boostrapbutton:"btn-primary"
+        },
+        {
+            title: "Setup Provider",
+            action: "setupprovider",
+            owner: "provider",
+            boostrapbutton:"btn-success"
+        },
+        {
+            title: "Provider Information",
+            action: "informationprovider",
+            owner: "provider",
+            boostrapbutton:"btn-success"
+        },
+        {
+            title: "Gather Information",
+            action: "informationgather",
+            owner: "provider",
+            boostrapbutton:"btn-success"
         },
         {
             title: "Administration",
             action: "admin",
-            owner: "admin"
-        }
+            owner: "admin",
+            boostrapbutton:"btn-danger"
+        },
+        {
+            title: "Logout",
+            action: "logout",
+            owner: "user",
+            boostrapbutton:"btn-info"
+        },
     ];
 
 });
