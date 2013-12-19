@@ -18,7 +18,12 @@ hadapsApp.config(function ($routeProvider) {
             {
                 controller: 'clientsetupController',
                 templateUrl: 'app/partials/clientsetup.php'
-            })       
+            }) 
+        .when('/informationrequest',
+            {
+                controller: 'clientRequestInformationController',
+                templateUrl: 'app/partials/informationrequest.php'
+            })         
         .otherwise({redirectTo: '/login' });
 });
 

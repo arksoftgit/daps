@@ -80,7 +80,8 @@
     }
 
     this.isLogoff = function (action) {
-        if (action == adminfunctions[0].action)
+        logoffIdx = adminfunctions.length - 1;
+        if (action == logoffIdx)
             return true;
         else
             return false;
@@ -94,13 +95,13 @@
             boostrapbutton:"btn-primary"
         },
         {
-            title: "Setup Client",
+            title: "First Time Setup Client",
             action: "clientsetup",
             owner: "client",
             boostrapbutton:"btn-primary"
         },
         {
-            title: "Request Information",
+            title: "Request For Information",
             action: "informationrequest",
             owner: "client",
             boostrapbutton:"btn-primary"
@@ -124,7 +125,7 @@
             boostrapbutton:"btn-success"
         },
         {
-            title: "Gather Information",
+            title: "Gather Provider Information",
             action: "informationgather",
             owner: "provider",
             boostrapbutton:"btn-success"

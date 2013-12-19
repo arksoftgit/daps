@@ -14,10 +14,6 @@
 <link href="css/hadaps.css" rel="stylesheet" />
 
 <!-- Vendor Libs -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.1/angular.min.js"></script> -->
-<!-- <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
-<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular-animate.js"></script> -->
 <script src="//code.angularjs.org/1.2.1/angular.min.js"></script>
 <script src="//code.angularjs.org/1.2.1/angular-route.min.js"></script>
 <script src="//code.angularjs.org/1.2.1/angular-animate.js"></script>
@@ -45,7 +41,7 @@
 <body style="background:white;" data-ng-controller="hadapsParentController" >
 
 <div style="padding-left:50px;padding-bottom:25px;width:100%;background:#5E8483">
-    <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/"><img style="height:75px;" src="img/haicon.png" alt="logo"></a>
+    <a class="navbar-brand" style="text-decoration:none;float:left;" href="#/home"><img style="height:75px;" src="img/haicon.png" alt="logo"></a>
     <div style="padding-top:35px;">
         <span id="cmtitle" class="bodyFont" style="color:white;padding-left:15px;padding-right:0px;margin:auto;letter-spacing:12px;font-size:35px;">HealthAllianze DAPS</span> 
     </div>

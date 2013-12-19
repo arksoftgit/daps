@@ -9,7 +9,6 @@
 
 <div class="row">
 <div class="col-lg-7">
-<panel>
 <form id="clientsetup" method="post">
     <div style="padding-top:20px;padding-left:35px;">
     <div id="alert_msg_pi"></div>
@@ -30,19 +29,19 @@
     <tr style="height:45px;">
     	<td align="right"><strong>Address</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your Shipping Address" required>
+	    	<input style="width:400px;" type="text" id="address1" name="address1" placeholder="Enter your billing Address" required>
         </td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>&nbsp;</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="address2" name="address2" placeholder="Enter your Shipping Address">
+	    	<input style="width:400px;" type="text" id="address2" name="address2" placeholder="Enter your billing Address">
     	</td>
     </tr>
     <tr style="height:45px;">
     	<td align="right"><strong>City</strong></td>
     	<td align="left" style="padding-left:10px;" colspan=4>
-	    	<input style="width:400px;" type="text" id="city" name="city" placeholder="Enter your Shipping City" required>
+	    	<input style="width:400px;" type="text" id="city" name="city" placeholder="Enter your billing City" required>
     	</td>
     </tr>
 	<tr style="height:45px;">
@@ -83,7 +82,6 @@
     </table>  
 </div>
 </form>
-</panel>
 </div><!-- end of col-lg-7 -->
 
 <div style="padding-top:20px;" class="col-lg-5">
@@ -124,7 +122,7 @@
 </div> <!-- end of pannel -->
 
 <div id="clientsetupprocess" style="padding:20px;">
-<button type="button" id="clientsetupprocess" class="btn btn-success btn-lg btn-block big-buttons ">Process</button>
+<button type="button" id="clientsetupprocess" class="btn btn-success btn-lg btn-block process-buttons ">Process</button>
 </div><!-- end of clientsetupsave -->
 </div><!-- end of col-lg-5 -->
 </div><!-- end of row  -->

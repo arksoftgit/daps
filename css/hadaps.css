@@ -18,6 +18,32 @@
 }
 
 .big-buttons {
-    width:40%;
+    width:45%;
     margin:3px;
+}
+
+.process-buttons {
+    width:160px;
+    margin:3px;
+}
+
+.listHeader {
+    font-size: 18px;
+    font-weight: 800;
+    padding-left: 10px;
+    color:maroon;
+    font-family:'OFL Sorts Mill Goudy TT', georgia, times, serif;
+}
+
+.listHeaderIcon {
+    font-size: 25px;
+    color:maroon;
+    vertical-align:middle;
+}
+
+.entryInput {
+    margin-left: 25px;
+    border-color:#E5E4E2;
+    border-style:solid;
+    border-width:1px;
 }
