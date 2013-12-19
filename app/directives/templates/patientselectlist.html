@@ -1,1 +1,9 @@
-<select id="patientlistselect" >{{selecthtml}}</select>
+<div name="displayarea" >
+<i id="patienticon" class="listHeaderIcon glyphicon glyphicon-circle-arrow-right"></i><span class="listHeader">Select Patient</span>
+<input style="width:50%;" ng-model="patientname" class="entryInput" id="patientname" name="patientname" type="text" placeholder="Patient name" >
+<div  style="padding:15px;" >
+<table ui-if="!!patientlist.length" ng-model="patientlist" ng-repeat="patient in patientlist">
+<tr><td>{{patient.name}} {{patient.address1}} {{patient.city}} {{patient.state}} {{patient.zip}}</td><td style='width:25px;'>&nbsp;<td>ID: {{patient.patientid}}</td></tr>
+</table>
+</div>
+</div>

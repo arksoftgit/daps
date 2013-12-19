@@ -13,12 +13,12 @@
 <div class="col-lg-12">
 <div class="panel">
 <div id="patientinfoselect">
-<i id="patienticon" class="listHeaderIcon glyphicon glyphicon-circle-arrow-right"></i><span class="listHeader">Select Patient</span>
-<input style="width:50%;"  class="entryInput" data-ng-model="patientlist" data-ng-change="getList('patientlistarea','patientname')" data-ng-blur="hideArea('patienticon')"  data-ng-focus="showArea('patienticon')"id="patientname" name="patientname" type="text" placeholder="Patient name" >
+<patient-select-type-ahead></patient-select-type-ahead>
+<!-- <input style="width:50%;"  class="entryInput" data-ng-model="patientlist" data-ng-change="getList('patientlistarea','patientname')" data-ng-blur="hideArea('patienticon')"  data-ng-focus="showArea('patienticon')"id="patientname" name="patientname" type="text" placeholder="Patient name" >
 <input style="width:25%;" class="entryInput" id="patientid" name="patientid" type="text" placeholder="Patient ID">
 </div>
 <div id="patientlistarea" data-ng-init="patientnameshow = false" data-ng-show="patientnameshow" >
-</div>
+</div> -->
 
 </div><!-- end of patientarea -->
 
@@ -31,7 +31,7 @@
 <div class="panel">
 <i data-ng-click="" class="listHeaderIcon glyphicon glyphicon-circle-arrow-right"></i><span class="listHeader">Select Provider</span>
 <div id="providernamearea" style="display:none;">
-<patient-select-type-ahead></patient-select-type-ahead>
+
 </div><!-- end of patientarea -->
 </div> <!-- end of panel -->
 </div> <!-- end of col-lg-12 -->
@@ -42,7 +42,7 @@
 <div class="panel">
 <i data-ng-click="" class="listHeaderIcon glyphicon glyphicon-circle-arrow-right"></i><span class="listHeader">Request Description</span>
 <div id="requestdescriptionarea" style="display:none;">
-<patient-select-type-ahead></patient-select-type-ahead>
+
 </div><!-- end of patientarea -->
 </div> <!-- end of panel -->
 </div> <!-- end of col-lg-12 -->
@@ -53,7 +53,7 @@
 <div class="panel">
 <i data-ng-click="" class="listHeaderIcon glyphicon glyphicon-circle-arrow-right"></i><span class="listHeader">Request Method</span>
 <div id="requestmethodmearea" style="display:none;">
-<patient-select-type-ahead></patient-select-type-ahead>
+
 </div><!-- end of patientarea -->
 </div> <!-- end of panel -->
 </div> <!-- end of col-lg-6 -->

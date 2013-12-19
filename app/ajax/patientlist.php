@@ -87,9 +87,13 @@ if (!$sql_result)
 	exit(json_encode($returnArray));
 }
 
-$rows = array();
-while($row = mysql_fetch_assoc($sql_result)) {
-    $results[] = $row;
+$count = mysql_num_rows($sql_result);
+if ($count > 0)
+{
+	$rows = array();
+	while($row = mysql_fetch_assoc($sql_result)) {
+	    $results[] = $row;
+	}
 }
 
 //
@@ -105,5 +109,8 @@ $returnArrayLog->writeLog("Patient List request ended.");
 //
 // pass back info
 //
-exit(json_encode($results));
+if ($count > 0)
+{
+	exit(json_encode($results));
+}
 ?>

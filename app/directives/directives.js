@@ -60,19 +60,38 @@ hadapsApp.directive('patientSelectTypeAhead', function (patientFactory) {
     return {
         restrict: 'E',
         scope: {
-            selecthtml: '@'
+            patientname: '@',
+            patientlist: '@'
         },
         templateUrl: 'app/directives/templates/patientselectlist.html',
         replace: true,
-        transclude: false,
-        link: function (scope, elements, attrs, controllers) { 
-            var data = patientFactory.patientListTypeAhead();
-            var selectStr = '';
-            // $.each(data, function() {
-            //     selectStr = selectStr + '<option value="'+this.patientid+'">'+this.patientname+'</option>';
-            // });
-            selectStr = selectStr + '<option value="'+data.patientid+'">'+data.patientname+'</option>';
-            scope.selecthtml = selectStr;      
+        transclude: true,
+        link: function (scope, elements, attrs) { 
+            scope.$watch('patientname', function (newval,oldval,srcScope) {
+                var parms = "";
+                var parms = "patientname="+scope.patientname;
+                if (newval != undefined && newval.length > 0)
+                {
+                    patientFactory.patientListTypeAhead(parms)
+                    .success( function(jsonStr) {
+                        if (jsonStr)
+                        {
+                            scope.patientlist = jsonStr;
+                        }
+                        else
+                        {
+                            scope.patientlist = "";
+                       }
+                    })
+
+                    .error( function(data) {
+                        alert("Failed ajax to get patient name");
+                    }); 
+                }   
+            }, true);
+
+
+              
         }
     }
 
